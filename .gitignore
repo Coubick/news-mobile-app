@@ -13,4 +13,4 @@ venv/
 dist/
 build/
 .DS_Store
-init_db.py
+backend/init_db.py
