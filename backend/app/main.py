@@ -4,7 +4,7 @@ from app.config import settings
 from app.api.v1.routes import api_router
 from app.db.database import Base, engine
 
-# Создаём таблицы в БД (если их ещё нет)
+# ✅ Автоматически создаём таблицы при запуске
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -38,9 +38,9 @@ def root():
     }
 
 
-@app.get("/available")
+@app.get("/health")
 def health_check():
     """
-    Проверка сервера.
+    Проверка здоровья сервера.
     """
     return {"status": "ok"}
