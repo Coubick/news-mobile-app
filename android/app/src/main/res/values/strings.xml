@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">news</string>
+    <string name="app_name">News</string>
+    <string name="username_register"> Username (min length: 2) </string>
+    <string name="username_login"> Username </string>
+    <string name="password_register"> Password (min length: 6) </string>
+    <string name="confirm_password"> Confirm password</string>
+    <string name="password_login"> Password </string>
+    <string name="login">Login</string>
+    <string name="register">Register (hold)</string>
+    <string name="create_account">Create account</string>
+    <string name="already_have_acc">Already have an account?</string>
+    <string name="not_have_account">Do not have an account?</string>
 </resources>

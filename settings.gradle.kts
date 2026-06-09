@@ -7,6 +7,7 @@ pluginManagement {
                 includeGroupByRegex("androidx.*")
             }
         }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -24,4 +25,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "news"
 include(":app")
- 
+project(":app").projectDir = file("android/app")
