@@ -1,6 +1,7 @@
 package com.example.news.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.news.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -8,6 +9,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
+import com.example.news.utils.Result
+import kotlinx.coroutines.launch
 
 data class LoginUiState (
     val username: String="",
@@ -24,8 +27,6 @@ class LoginViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
-    // States
-
     fun onUsernameChanged(username: String) {
         _uiState.update { it.copy(username = username, errorMessage = null) }
     }
@@ -41,7 +42,20 @@ class LoginViewModel @Inject constructor(
             _uiState.update { it.copy(errorMessage = validationError) }
             return
         }
-        // TODO authRepository.register()
+
+        _uiState.update { it.copy(isLoading = true) }
+
+        viewModelScope.launch {
+            when (val result = authRepository.login(state.username, state.password)) {
+                is Result.Success -> {
+                    _uiState.update { it.copy(isLoading = false, isLoginSuccessful = true) }
+                }
+
+                is Result.Failure -> {
+                    _uiState.update { it.copy(isLoading = false, errorMessage = result.msg) }
+                }
+            }
+        }
     }
 
     private fun validate(state: LoginUiState): String? {

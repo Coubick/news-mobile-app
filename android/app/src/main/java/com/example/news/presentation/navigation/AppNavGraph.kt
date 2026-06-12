@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.news.presentation.screens.auth.LoginScreen
 import com.example.news.presentation.screens.auth.RegistrationScreen
+import com.example.news.presentation.screens.news.NewsListScreen
 import com.example.news.presentation.viewmodel.LoginViewModel
 import com.example.news.presentation.viewmodel.RegistrationViewModel
 import kotlinx.serialization.Serializable
@@ -52,6 +53,12 @@ fun AppNavGraph(
             RegistrationScreen(
                 viewModel = viewModel,
                 onNavigateTo = { navController.navigate(it) }
+            )
+        }
+
+        composable<Screen.Main> {
+            NewsListScreen (
+                onNavigateTo = {navController.navigate(it)}
             )
         }
     }

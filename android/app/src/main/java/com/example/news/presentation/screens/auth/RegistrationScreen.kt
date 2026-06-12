@@ -22,7 +22,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,10 +36,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.news.R
 import com.example.news.presentation.navigation.Screen
 import com.example.news.presentation.viewmodel.RegistrationViewModel
@@ -50,11 +49,11 @@ fun RegistrationScreen(
     viewModel: RegistrationViewModel = hiltViewModel(),
     onNavigateTo: (Screen) -> Unit = {}
 ) {
-    val state by viewModel.uiState.collectAsState()
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(state.isRegistrationSuccessful) {
         if (state.isRegistrationSuccessful) {
-            onNavigateTo(Screen.Login)
+            onNavigateTo(Screen.Main)
         }
     }
 
@@ -93,7 +92,7 @@ fun RegistrationScreen(
         OutlinedTextField(
             value = state.username,
             onValueChange = { viewModel.onUsernameChanged(it) },
-            label = { Text(stringResource(R.string.username_register)) },
+            placeholder = { Text(stringResource(R.string.username_register)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = !state.isLoading,
             singleLine = true
@@ -102,7 +101,7 @@ fun RegistrationScreen(
         OutlinedTextField(
             value = state.password,
             onValueChange = { viewModel.onPasswordChanged(it) },
-            label = { Text(stringResource(R.string.password_register)) },
+            placeholder = { Text(stringResource(R.string.password_register)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = !state.isLoading,
             visualTransformation = PasswordVisualTransformation(),
@@ -113,7 +112,7 @@ fun RegistrationScreen(
         OutlinedTextField(
             value = state.confirmPassword,
             onValueChange = { viewModel.onConfirmPasswordChanged(it) },
-            label = { Text(stringResource(R.string.confirm_password)) },
+            placeholder = { Text(stringResource(R.string.confirm_password)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = !state.isLoading,
             visualTransformation = PasswordVisualTransformation(),
@@ -139,7 +138,7 @@ fun RegistrationScreen(
                 containerColor = Color(0xff55c1f2),
                 contentColor = Color.White
             ),
-            modifier = Modifier.fillMaxWidth()
+
         ) {
             if (state.isLoading) {
                 CircularProgressIndicator(

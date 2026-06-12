@@ -62,4 +62,15 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.59")
     ksp("com.google.dagger:hilt-android-compiler:2.59")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // DataStore (для TokenManager)
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // Coroutines (для suspend функций)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 }

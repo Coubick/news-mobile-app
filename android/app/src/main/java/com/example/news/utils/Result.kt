@@ -1,4 +1,6 @@
 package com.example.news.utils
 
-class Result {
+sealed interface Result {
+    data class Success(val msg: String="") : Result
+    data class Failure(val msg: String="") : Result
 }

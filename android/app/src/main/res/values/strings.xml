@@ -6,7 +6,7 @@
     <string name="confirm_password"> Confirm password</string>
     <string name="password_login"> Password </string>
     <string name="login">Login</string>
-    <string name="register">Register (hold)</string>
+    <string name="register">Register</string>
     <string name="create_account">Create account</string>
     <string name="already_have_acc">Already have an account?</string>
     <string name="not_have_account">Do not have an account?</string>

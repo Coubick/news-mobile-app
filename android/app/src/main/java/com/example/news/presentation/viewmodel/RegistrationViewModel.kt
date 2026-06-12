@@ -1,13 +1,16 @@
 package com.example.news.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.news.data.repository.AuthRepository
+import com.example.news.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 data class RegistrationUiState(
     val username: String = "",
@@ -24,8 +27,6 @@ class RegistrationViewModel @Inject constructor(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(RegistrationUiState())
     val uiState: StateFlow<RegistrationUiState> = _uiState.asStateFlow()
-
-    // States
 
     fun onUsernameChanged(username: String) {
         _uiState.update { it.copy(username = username, errorMessage = null) }
@@ -48,7 +49,20 @@ class RegistrationViewModel @Inject constructor(
         }
 
         _uiState.update { it.copy(isLoading = true, errorMessage = null) }
-        // TODO authRepository.register()
+
+        viewModelScope.launch {
+            authRepository.register(uiState.value.username, uiState.value.password)
+
+            when (val result = authRepository.register(state.username, state.password)) {
+                is Result.Success -> {
+                    _uiState.update { it.copy(isLoading = false, isRegistrationSuccessful = true) }
+                }
+
+                is Result.Failure -> {
+                    _uiState.update { it.copy(isLoading = false, errorMessage = result.msg) }
+                }
+            }
+        }
     }
 
     private fun validate(state: RegistrationUiState): String? {
