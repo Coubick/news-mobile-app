@@ -2,6 +2,10 @@ package com.example.news.di
 
 import com.example.news.data.repository.AuthRepository
 import com.example.news.data.repository.AuthRepositoryImpl
+import com.example.news.data.repository.NewsFilterOptionsRepository
+import com.example.news.data.repository.NewsFilterOptionsRepositoryImpl
+import com.example.news.data.repository.NewsRepository
+import com.example.news.data.repository.NewsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,7 +18,14 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindAuthRepository(
-        impl: AuthRepositoryImpl
-    ): AuthRepository
+    abstract fun bindAuthRepository(impl: AuthRepositoryImpl): AuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindNewsRepository(impl: NewsRepositoryImpl): NewsRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindNewsFilterOptionsRepository(impl: NewsFilterOptionsRepositoryImpl): NewsFilterOptionsRepository
 }
+

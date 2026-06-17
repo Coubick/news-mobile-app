@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.material3)
+    implementation(libs.identity.doctypes.jvm)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -68,9 +70,13 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-    // DataStore (для TokenManager)
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
-    // Coroutines (для suspend функций)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+
+    implementation(platform("androidx.compose:compose-bom:2024.09.00"))
+    implementation("androidx.compose.material:material-icons-extended")
+
+    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
+
 }

@@ -1,6 +1,8 @@
 package com.example.news.di
 
 import com.example.news.data.api.AuthApi
+import com.example.news.data.api.NewsApi
+import com.example.news.data.api.NewsFilterOptionsApi
 import com.example.news.data.local.TokenManager
 import dagger.Module
 import dagger.Provides
@@ -73,5 +75,17 @@ object NetworkModule {
     @Singleton
     fun provideAuthApi(retrofit: Retrofit): AuthApi {
         return retrofit.create(AuthApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsApi(retrofit: Retrofit): NewsApi {
+        return retrofit.create(NewsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideReferenceApi(retrofit: Retrofit): NewsFilterOptionsApi {
+        return retrofit.create(NewsFilterOptionsApi::class.java)
     }
 }

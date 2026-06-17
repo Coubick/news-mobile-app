@@ -10,4 +10,9 @@
     <string name="create_account">Create account</string>
     <string name="already_have_acc">Already have an account?</string>
     <string name="not_have_account">Do not have an account?</string>
+    <string name="all_cities">Все города</string>
+    <string name="all_spheres">Все сферы</string>
+    <string name="feed">Лента</string>
+    <string name="profile">Профиль</string>
+    <string name="add">Добавить новость</string>
 </resources>

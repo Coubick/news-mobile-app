@@ -47,11 +47,11 @@ class LoginViewModel @Inject constructor(
 
         viewModelScope.launch {
             when (val result = authRepository.login(state.username, state.password)) {
-                is Result.Success -> {
+                is Result.Success<*> -> {
                     _uiState.update { it.copy(isLoading = false, isLoginSuccessful = true) }
                 }
 
-                is Result.Failure -> {
+                is Result.Failure<*> -> {
                     _uiState.update { it.copy(isLoading = false, errorMessage = result.msg) }
                 }
             }

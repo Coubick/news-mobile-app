@@ -14,14 +14,14 @@ class AuthRepositoryImpl @Inject constructor(
     private val tokenManager: TokenManager
 ) : AuthRepository {
 
-    override suspend fun login(username: String, password: String): Result {
+    override suspend fun login(username: String, password: String): Result<Unit> {
         return try {
             val response = authApi.login(LoginRequest(username, password))
 
             if (response.isSuccessful && response.body() != null){
                 val token = response.body()!!.accessToken
                 tokenManager.saveToken(token)
-                Result.Success("Success")
+                Result.Success(Unit)
             } else {
                 val errorCode = response.code()
                 Result.Failure("Failure with: $errorCode")
@@ -31,13 +31,13 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun register(username: String, password: String): Result {
+    override suspend fun register(username: String, password: String): Result<Unit> {
         return try {
             val response = authApi.register(RegisterRequest(username, password))
             if (response.isSuccessful) {
                 val token = response.body()!!.accessToken
                 tokenManager.saveToken(token)
-                Result.Success("Success")
+                Result.Success(Unit)
             } else {
                 val errorCode = response.code()
                 Result.Failure("Failure with: $errorCode")

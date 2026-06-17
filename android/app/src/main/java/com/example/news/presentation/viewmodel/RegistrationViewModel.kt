@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.news.data.repository.AuthRepository
 import com.example.news.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -54,11 +54,11 @@ class RegistrationViewModel @Inject constructor(
             authRepository.register(uiState.value.username, uiState.value.password)
 
             when (val result = authRepository.register(state.username, state.password)) {
-                is Result.Success -> {
+                is Result.Success<*> -> {
                     _uiState.update { it.copy(isLoading = false, isRegistrationSuccessful = true) }
                 }
 
-                is Result.Failure -> {
+                is Result.Failure<*> -> {
                     _uiState.update { it.copy(isLoading = false, errorMessage = result.msg) }
                 }
             }

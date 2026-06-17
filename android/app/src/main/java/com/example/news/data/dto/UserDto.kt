@@ -3,8 +3,8 @@ package com.example.news.data.dto
 import com.google.gson.annotations.SerializedName
 
 data class UserDto(
-    val id: Long,
-    val username: String,
+    @SerializedName("id") val id: Long,
+    @SerializedName("username") val username: String,
     @SerializedName("avatar_url") val avatarUrl: String?,
     @SerializedName("created_at") val createdAt: String,
     @SerializedName("updated_at") val updatedAt: String
