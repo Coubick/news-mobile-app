@@ -29,10 +29,10 @@ fun FilterDropdown(
     onOptionSelected: (Long?) -> Unit,
     modifier: Modifier = Modifier,
     optionsType: FilterOptionsType,
-    options: List<FilterItem>,
+    options: List<FilterItem>?,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    val selectedOption = options.find { it.id == selectedOptionId }
+    val selectedOption = options!!.find { it.id == selectedOptionId }
 
     val noFilterText = if (optionsType == FilterOptionsType.CITY) "Все города" else "Все сферы"
 
@@ -74,7 +74,6 @@ fun FilterDropdown(
 
             HorizontalDivider()
 
-            // Список опций
             options.forEach { option ->
                 DropdownMenuItem(
                     text = {

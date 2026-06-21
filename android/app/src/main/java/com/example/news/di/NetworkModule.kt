@@ -1,6 +1,7 @@
 package com.example.news.di
 
 import com.example.news.data.api.AuthApi
+import com.example.news.data.api.CloudinaryApi
 import com.example.news.data.api.NewsApi
 import com.example.news.data.api.NewsFilterOptionsApi
 import com.example.news.data.local.TokenManager
@@ -8,12 +9,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -37,14 +38,11 @@ object NetworkModule {
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            // авторизация через интерсептор
             .addInterceptor { chain ->
                 val request = chain.request()
-
                 val token = kotlinx.coroutines.runBlocking {
                     tokenManager.getTokenSync()
                 }
-
                 val newRequest = if (!token.isNullOrEmpty()) {
                     request.newBuilder()
                         .header("Authorization", "Bearer $token")
@@ -52,7 +50,6 @@ object NetworkModule {
                 } else {
                     request
                 }
-
                 chain.proceed(newRequest)
             }
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -73,19 +70,19 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAuthApi(retrofit: Retrofit): AuthApi {
-        return retrofit.create(AuthApi::class.java)
-    }
+    fun provideAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
 
     @Provides
     @Singleton
-    fun provideNewsApi(retrofit: Retrofit): NewsApi {
-        return retrofit.create(NewsApi::class.java)
-    }
+    fun provideNewsApi(retrofit: Retrofit): NewsApi = retrofit.create(NewsApi::class.java)
 
     @Provides
     @Singleton
-    fun provideReferenceApi(retrofit: Retrofit): NewsFilterOptionsApi {
-        return retrofit.create(NewsFilterOptionsApi::class.java)
-    }
+    fun provideNewsFilterOptionsApi(retrofit: Retrofit): NewsFilterOptionsApi =
+        retrofit.create(NewsFilterOptionsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideCloudinaryApi(retrofit: Retrofit): CloudinaryApi =
+        retrofit.create(CloudinaryApi::class.java)
 }

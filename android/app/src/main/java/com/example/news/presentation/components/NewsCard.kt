@@ -128,9 +128,10 @@ fun NewsCard(
                 model = news.imageUrl,
                 contentDescription = news.title,
                 modifier = Modifier
+                    .padding(top = 10.dp)
                     .fillMaxWidth()
-                    .height(200.dp)
                     .padding(horizontal = 15.dp)
+                    .height(150.dp)
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop,
             )

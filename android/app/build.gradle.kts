@@ -17,6 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "CLOUDINARY_CLOUD_NAME", "\"dt0psvzf4\"")
+        buildConfigField("String", "CLOUDINARY_UPLOAD_PRESET", "\"news_app_preset\"")
     }
 
     buildTypes {
@@ -34,6 +36,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -79,4 +82,9 @@ dependencies {
 
     implementation("io.coil-kt.coil3:coil-compose:3.4.0")
 
+    implementation("com.cloudinary:cloudinary-android:3.0.2")
+
+    implementation("io.github.vanpra.compose-material-dialogs:core:0.8.1-rc")
+    implementation("io.github.vanpra.compose-material-dialogs:datetime:0.8.1-rc")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

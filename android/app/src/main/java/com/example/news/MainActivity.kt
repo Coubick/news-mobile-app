@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.cloudinary.android.MediaManager
 import com.example.news.presentation.navigation.AppNavGraph
 import com.example.news.ui.NewsTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,3 +53,4 @@ fun GreetingPreview() {
         MainContent()
     }
 }
+

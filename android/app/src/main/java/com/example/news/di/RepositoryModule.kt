@@ -6,6 +6,8 @@ import com.example.news.data.repository.NewsFilterOptionsRepository
 import com.example.news.data.repository.NewsFilterOptionsRepositoryImpl
 import com.example.news.data.repository.NewsRepository
 import com.example.news.data.repository.NewsRepositoryImpl
+import com.example.news.data.repository.CreateNewsRepository
+import com.example.news.data.repository.CreateNewsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -27,5 +29,9 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindNewsFilterOptionsRepository(impl: NewsFilterOptionsRepositoryImpl): NewsFilterOptionsRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindCloudinaryRepository(impl: CreateNewsRepositoryImpl) : CreateNewsRepository
 }
 

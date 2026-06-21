@@ -53,7 +53,7 @@ class NewsViewModel @Inject constructor(
 
             when (result) {
                 is Result.Success -> {
-                    val newsItems = result.data.map { it.toNewsItem() }
+                    val newsItems = result.data!!.map { it.toNewsItem() }
                     _uiState.update {
                         it.copy(
                             isLoading = true,
@@ -105,7 +105,7 @@ class NewsViewModel @Inject constructor(
 
             when (result) {
                 is Result.Success -> {
-                    val newsItems = result.data.map { it.toNewsItem() }
+                    val newsItems = result.data!!.map { it.toNewsItem() }
                     _uiState.update {
                         it.copy(
                             isLoading = false,

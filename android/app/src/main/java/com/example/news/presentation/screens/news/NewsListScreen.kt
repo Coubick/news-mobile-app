@@ -42,8 +42,8 @@ import com.example.news.utils.FilterOptionsType
 @Composable
 private fun NewsListHeader(
     currentFilter: NewsFilter,
-    cities: List<FilterItem>,
-    spheres: List<FilterItem>,
+    cities: List<FilterItem>?,
+    spheres: List<FilterItem>?,
     onCitySelected: (Long?) -> Unit,
     onSphereSelected: (Long?) -> Unit
 ) {
@@ -94,8 +94,8 @@ fun NewsListContent(
     newsList: List<NewsItem> = emptyList(),
     isLoading: Boolean = false,
     currentFilter: NewsFilter,
-    cities: List<FilterItem>,
-    spheres: List<FilterItem>,
+    cities: List<FilterItem>?,
+    spheres: List<FilterItem>?,
     onCitySelected: (Long?) -> Unit = {},
     onSphereSelected: (Long?) -> Unit = {}
 ) {
@@ -192,48 +192,48 @@ fun NewsListScreen(
 //    )
 //}
 
-@Preview(showBackground = true, name = "С новостями")
-@Composable
-fun NewsListPreviewWithData() {
-    NewsListContent(
-        newsList = listOf(
-            NewsItem(
-                id = 1,
-                title = "Тестовая новость",
-                description = "Описание новости",
-                imageUrl = null,
-                authorName = "Иван Петров",
-                authorAvatarUrl = null,
-                cityName = "Москва",
-                sphereName = "Спорт",
-                createdAt = "2 часа назад"
-            ),
-            NewsItem(
-                id = 2,
-                title = "Тестовая новость 2",
-                description = "Описание новости 2 2 2 22 22 2",
-                imageUrl = null,
-                authorName = "Иван Матвеев",
-                authorAvatarUrl = null,
-                cityName = "Мурманск",
-                sphereName = "Культура",
-                createdAt = "когда-то"
-            )
-        ),
-        isLoading = false,
-        currentFilter = NewsFilter(cityId = 1L, sphereId = 2L),  // ← Выбраны фильтры
-        cities = listOf(
-            FilterItem(id = 1, name = "Москва"),
-            FilterItem(id = 2, name = "Санкт-Петербург")
-        ),
-        spheres = listOf(
-            FilterItem(id = 1, name = "Спорт"),
-            FilterItem(id = 2, name = "Культура")
-        ),
-        onCitySelected = {},
-        onSphereSelected = {}
-    )
-}
+//@Preview(showBackground = true, name = "С новостями")
+//@Composable
+//fun NewsListPreviewWithData() {
+//    NewsListContent(
+//        newsList = listOf(
+//            NewsItem(
+//                id = 1,
+//                title = "Тестовая новость",
+//                description = "Описание новости",
+//                imageUrl = null,
+//                authorName = "Иван Петров",
+//                authorAvatarUrl = null,
+//                cityName = "Москва",
+//                sphereName = "Спорт",
+//                createdAt = "2 часа назад"
+//            ),
+//            NewsItem(
+//                id = 2,
+//                title = "Тестовая новость 2",
+//                description = "Описание новости 2 2 2 22 22 2",
+//                imageUrl = null,
+//                authorName = "Иван Матвеев",
+//                authorAvatarUrl = null,
+//                cityName = "Мурманск",
+//                sphereName = "Культура",
+//                createdAt = "когда-то"
+//            )
+//        ),
+//        isLoading = false,
+//        currentFilter = NewsFilter(cityId = 1L, sphereId = 2L),  // ← Выбраны фильтры
+//        cities = listOf(
+//            FilterItem(id = 1, name = "Москва"),
+//            FilterItem(id = 2, name = "Санкт-Петербург")
+//        ),
+//        spheres = listOf(
+//            FilterItem(id = 1, name = "Спорт"),
+//            FilterItem(id = 2, name = "Культура")
+//        ),
+//        onCitySelected = {},
+//        onSphereSelected = {}
+//    )
+//}
 
 //@Preview(showBackground = true, name = "Загрузка")
 //@Composable

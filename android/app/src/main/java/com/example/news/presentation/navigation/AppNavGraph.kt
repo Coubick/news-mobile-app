@@ -9,7 +9,6 @@ import androidx.navigation.compose.composable
 import com.example.news.presentation.screens.auth.LoginScreen
 import com.example.news.presentation.screens.auth.RegistrationScreen
 import com.example.news.presentation.screens.news.MainScreen
-import com.example.news.presentation.screens.news.NewsListScreen
 import com.example.news.presentation.viewmodel.LoginViewModel
 import com.example.news.presentation.viewmodel.RegistrationViewModel
 import kotlinx.serialization.Serializable

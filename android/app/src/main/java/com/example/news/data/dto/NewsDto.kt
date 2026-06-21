@@ -42,7 +42,6 @@ fun NewsDto.toNewsItem(): NewsItem {
 
 private fun formatDateTime(isoDate: String): String {
     return try {
-        // Обрезаем микросекунды, если есть
         val cleanDate = isoDate.substringBefore(".")
         val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val date = format.parse(cleanDate) ?: return isoDate

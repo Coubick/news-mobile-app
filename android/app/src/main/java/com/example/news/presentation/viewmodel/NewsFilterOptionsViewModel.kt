@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class FilterUiState(
-    val cities: List<FilterItem> = emptyList(),
-    val spheres: List<FilterItem> = emptyList(),
+    val cities: List<FilterItem>? = emptyList(),
+    val spheres: List<FilterItem>? = emptyList(),
     val isLoading: Boolean = false,
     val errorMessage: String? = null
 )

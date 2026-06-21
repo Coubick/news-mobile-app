@@ -10,4 +10,12 @@ interface NewsRepository {
         limit: Int,
         offset: Int
     ): Result<List<NewsDto>>
+
+    suspend fun createNews(
+        title: String,
+        description: String,
+        cityId: Long?,
+        sphereId: Long?,
+        imageUrl: String?
+    ) : Result<Unit>
 }
