@@ -4,12 +4,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
@@ -22,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import coil.compose.AsyncImage
 import com.example.news.R
 import com.example.news.presentation.screens.news.NewsItem
 
@@ -116,7 +118,7 @@ fun NewsCard(
 
             Text(
                 text = news.title,
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .padding(start = 4.dp)
@@ -130,11 +132,14 @@ fun NewsCard(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .fillMaxWidth()
+                    .fillMaxHeight()
                     .padding(horizontal = 15.dp)
-                    .height(150.dp)
+//                    .height(150.dp)
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop,
-            )
+
+                )
+
         } else {
             Image(
                 painter = painterResource(R.drawable.news_title),

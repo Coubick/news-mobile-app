@@ -14,11 +14,11 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Singleton
-class CreateNewsRepositoryImpl @Inject constructor(
+class CloudinaryRepositoryImpl @Inject constructor(
     private val cloudinary: Cloudinary,
     private val cloudinaryApi: CloudinaryApi,
     @ApplicationContext private val context: Context
-) : CreateNewsRepository {
+) : CloudinaryRepository {
 
 
     override suspend fun uploadImageToCloudinary(uri: Uri): Result<String?> {

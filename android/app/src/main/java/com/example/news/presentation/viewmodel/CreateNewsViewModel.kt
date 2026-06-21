@@ -2,7 +2,7 @@ package com.example.news.presentation.viewmodel
 
 import android.net.Uri
 import androidx.lifecycle.ViewModel
-import com.example.news.data.repository.CreateNewsRepository
+import com.example.news.data.repository.CloudinaryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -29,7 +29,7 @@ data class CreateNewsUiState(
 
 @HiltViewModel
 class UploadImageToCloudinaryViewModel @Inject constructor(
-    private val createNewsRepository: CreateNewsRepository,
+    private val cloudinaryRepository: CloudinaryRepository,
     private val newsRepository: NewsRepository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(CreateNewsUiState())
@@ -52,8 +52,6 @@ class UploadImageToCloudinaryViewModel @Inject constructor(
         _uiState.update { it.copy(sphereId = sphereId) }
     }
 
-    // метод загрузки фото на cloudinary (используется imageRepo), возвращает - url фотки, которая в карточке новости
-
     fun upload() {
         val uri: Uri = _uiState.value.selectedImageUri ?: return
 
@@ -65,7 +63,7 @@ class UploadImageToCloudinaryViewModel @Inject constructor(
             }
 
             when (val secureUrl: Result<String?> =
-                createNewsRepository.uploadImageToCloudinary(
+                cloudinaryRepository.uploadImageToCloudinary(
                     file = uri
                 )) {
                 is Result.Success -> {
@@ -117,7 +115,7 @@ class UploadImageToCloudinaryViewModel @Inject constructor(
         _uiState.update {
             it.copy(
                 selectedImageUri = uri,
-                uploadedImageUrl = null  // Сбрасываем предыдущий загруженный URL
+                uploadedImageUrl = null
             )
         }
     }

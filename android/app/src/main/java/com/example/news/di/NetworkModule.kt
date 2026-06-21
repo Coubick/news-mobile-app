@@ -4,6 +4,7 @@ import com.example.news.data.api.AuthApi
 import com.example.news.data.api.CloudinaryApi
 import com.example.news.data.api.NewsApi
 import com.example.news.data.api.NewsFilterOptionsApi
+import com.example.news.data.api.UserApi
 import com.example.news.data.local.TokenManager
 import dagger.Module
 import dagger.Provides
@@ -85,4 +86,9 @@ object NetworkModule {
     @Singleton
     fun provideCloudinaryApi(retrofit: Retrofit): CloudinaryApi =
         retrofit.create(CloudinaryApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideUserApi(retrofit: Retrofit): UserApi =
+        retrofit.create(UserApi::class.java)
 }

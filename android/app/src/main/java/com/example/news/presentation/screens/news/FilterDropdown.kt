@@ -9,11 +9,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.news.presentation.model.FilterItem
 import com.example.news.utils.FilterOptionsType
+import com.example.news.R
 
 /**
  *
@@ -34,7 +36,9 @@ fun FilterDropdown(
     var expanded by remember { mutableStateOf(false) }
     val selectedOption = options!!.find { it.id == selectedOptionId }
 
-    val noFilterText = if (optionsType == FilterOptionsType.CITY) "Все города" else "Все сферы"
+    val noFilterText =
+        if (optionsType == FilterOptionsType.CITY) stringResource(R.string.city_not_picked)
+        else stringResource(R.string.sphere_not_picked)
 
     Box(modifier = modifier) {
         Row(
@@ -63,7 +67,6 @@ fun FilterDropdown(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            // Опция, если выбраны все города/сферы
             DropdownMenuItem(
                 text = { Text(noFilterText) },
                 onClick = {

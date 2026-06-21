@@ -14,5 +14,18 @@
     <string name="all_spheres">Все сферы</string>
     <string name="feed">Лента</string>
     <string name="profile">Профиль</string>
-    <string name="add">Добавить новость</string>
+    <string name="add">Добавить</string>
+    <string name="create_news">Создать новость</string>
+    <string name="title">Заголовок*</string>
+    <string name="description">Описание*\n</string>
+    <string name="city">Город*\n</string>
+    <string name="sphere">Сфера*</string>
+    <string name="load_image">Изображение (необязательно)</string>
+    <string name="pick_image">Выбрать изображение</string>
+    <string name="city_not_picked">Город не выбран\n</string>
+    <string name="sphere_not_picked">Сфера не выбрана\n</string>
+    <string name="not_news_yet">Новостей пока нет</string>
+    <string name="user_name">Имя:</string>
+    <string name="retry">Повторить</string>
+    <string name="change_avatar">Сменить фото</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.example.news.presentation.screens.news
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.AddCircleOutline
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Icon
@@ -34,8 +34,8 @@ fun BottomNavigationBar(
             route = NewsScreenNavigationRoute.Feed
         ),
         BottomNavItem(
-            iconSelected = Icons.Filled.Add,
-            iconUnselected = Icons.Outlined.Add,
+            iconSelected = Icons.Filled.AddCircle,
+            iconUnselected = Icons.Outlined.AddCircleOutline,
             titleResId = R.string.add,
             route = NewsScreenNavigationRoute.AddNew
         ),
@@ -46,13 +46,14 @@ fun BottomNavigationBar(
             route = NewsScreenNavigationRoute.Profile
         )
     )
+
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination
 
     NavigationBar {
         navigationItems.forEach { item ->
             val selected = currentDestination?.hierarchy?.any {
-                it.hasRoute(item.route::class) // TODO (selected - ???)
+                it.hasRoute(item.route::class)
             } == true
 
             NavigationBarItem(
@@ -62,8 +63,8 @@ fun BottomNavigationBar(
                         popUpTo(navController.graph.startDestinationId) {
                             saveState = true
                         }
-                        launchSingleTop = true // TODO ???
-                        restoreState = true // TODO ???
+                        launchSingleTop = true
+                        restoreState = true
                     }
                 },
                 icon = {

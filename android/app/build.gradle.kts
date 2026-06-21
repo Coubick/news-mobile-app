@@ -80,11 +80,15 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2024.09.00"))
     implementation("androidx.compose.material:material-icons-extended")
 
-    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
+//    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
 
     implementation("com.cloudinary:cloudinary-android:3.0.2")
 
     implementation("io.github.vanpra.compose-material-dialogs:core:0.8.1-rc")
     implementation("io.github.vanpra.compose-material-dialogs:datetime:0.8.1-rc")
     implementation("com.google.code.gson:gson:2.10.1")
+
+//    implementation("io.coil-kt.coil3:coil-network-okhttp:3.4.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
 }
