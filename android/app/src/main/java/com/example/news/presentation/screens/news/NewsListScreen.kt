@@ -32,7 +32,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.news.R
 import com.example.news.presentation.components.NewsCard
-import com.example.news.presentation.model.FilterItem
+import com.example.news.domain.model.FilterItem
+import com.example.news.domain.model.NewsItem
 import com.example.news.presentation.viewmodel.NewsFilter
 import com.example.news.presentation.viewmodel.NewsFilterOptionsViewModel
 import com.example.news.presentation.viewmodel.NewsViewModel

@@ -1,4 +1,4 @@
-package com.example.news.presentation.screens.news
+package com.example.news.domain.model
 
 data class NewsItem(
     val id: Long,

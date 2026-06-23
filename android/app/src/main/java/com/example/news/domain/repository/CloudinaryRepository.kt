@@ -1,4 +1,4 @@
-package com.example.news.data.repository
+package com.example.news.domain.repository
 
 import android.net.Uri
 import com.example.news.utils.Result

@@ -1,6 +1,6 @@
-package com.example.news.data.repository
+package com.example.news.domain.repository
 
-import com.example.news.presentation.model.FilterItem
+import com.example.news.domain.model.FilterItem
 import com.example.news.utils.Result
 
 interface NewsFilterOptionsRepository {

@@ -46,7 +46,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.news.R
-import com.example.news.presentation.model.FilterItem
+import com.example.news.domain.model.FilterItem
 import com.example.news.presentation.viewmodel.CreateNewsUiState
 import com.example.news.presentation.viewmodel.NewsFilterOptionsViewModel
 import com.example.news.presentation.viewmodel.UploadImageToCloudinaryViewModel

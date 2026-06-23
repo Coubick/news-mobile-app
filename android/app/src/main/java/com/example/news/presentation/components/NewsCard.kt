@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.news.R
-import com.example.news.presentation.screens.news.NewsItem
+import com.example.news.domain.model.NewsItem
 
 
 @Composable

@@ -2,7 +2,7 @@ package com.example.news.presentation.viewmodel
 
 import android.net.Uri
 import androidx.lifecycle.ViewModel
-import com.example.news.data.repository.CloudinaryRepository
+import com.example.news.domain.repository.CloudinaryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 import androidx.lifecycle.viewModelScope
-import com.example.news.data.repository.NewsRepository
+import com.example.news.domain.repository.NewsRepository
 import com.example.news.utils.Result
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.example.news.presentation.screens.news
+package com.example.news.presentation.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
@@ -19,7 +19,6 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.news.R
-import com.example.news.presentation.navigation.NewsScreenNavigationRoute
 import com.example.news.utils.BottomNavItem
 
 @Composable

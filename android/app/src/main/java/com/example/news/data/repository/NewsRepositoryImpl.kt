@@ -3,6 +3,7 @@ package com.example.news.data.repository
 import com.example.news.data.api.NewsApi
 import com.example.news.data.dto.CreateNewsRequest
 import com.example.news.data.dto.NewsDto
+import com.example.news.domain.repository.NewsRepository
 import com.example.news.utils.Result
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package com.example.news.presentation.model
+package com.example.news.domain.model
 
 import com.example.news.data.dto.FilterItemDto
 

@@ -4,6 +4,7 @@ import com.example.news.data.api.AuthApi
 import com.example.news.data.dto.LoginRequest
 import com.example.news.data.dto.RegisterRequest
 import com.example.news.data.local.TokenManager
+import com.example.news.domain.repository.AuthRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 import com.example.news.utils.Result

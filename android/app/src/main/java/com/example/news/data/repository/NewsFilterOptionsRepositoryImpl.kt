@@ -1,8 +1,9 @@
 package com.example.news.data.repository
 
 import com.example.news.data.api.NewsFilterOptionsApi
-import com.example.news.presentation.model.FilterItem
-import com.example.news.presentation.model.toUiModel
+import com.example.news.domain.repository.NewsFilterOptionsRepository
+import com.example.news.domain.model.FilterItem
+import com.example.news.domain.model.toUiModel
 import com.example.news.utils.Result
 import javax.inject.Inject
 import javax.inject.Singleton

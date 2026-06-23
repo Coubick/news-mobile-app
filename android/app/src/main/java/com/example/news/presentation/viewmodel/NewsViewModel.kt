@@ -3,8 +3,8 @@ package com.example.news.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.news.data.dto.toNewsItem
-import com.example.news.data.repository.NewsRepository
-import com.example.news.presentation.screens.news.NewsItem
+import com.example.news.domain.repository.NewsRepository
+import com.example.news.domain.model.NewsItem
 import com.example.news.utils.Constants.Companion.LIMIT_ITEMS
 import com.example.news.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel

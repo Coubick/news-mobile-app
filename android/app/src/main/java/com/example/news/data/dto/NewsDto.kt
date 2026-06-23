@@ -1,6 +1,6 @@
 package com.example.news.data.dto
 
-import com.example.news.presentation.screens.news.NewsItem
+import com.example.news.domain.model.NewsItem
 import com.google.gson.annotations.SerializedName
 import java.text.SimpleDateFormat
 import java.util.Locale

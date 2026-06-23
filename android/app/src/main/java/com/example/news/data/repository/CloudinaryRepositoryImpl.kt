@@ -11,6 +11,7 @@ import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 import android.content.Context
+import com.example.news.domain.repository.CloudinaryRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Singleton

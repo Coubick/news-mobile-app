@@ -1,4 +1,4 @@
-package com.example.news.data.repository
+package com.example.news.domain.repository
 
 import com.example.news.data.dto.UserDto
 import com.example.news.utils.Result

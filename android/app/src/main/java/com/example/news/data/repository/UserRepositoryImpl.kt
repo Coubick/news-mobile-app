@@ -2,6 +2,7 @@ package com.example.news.data.repository
 
 import com.example.news.data.api.UserApi
 import com.example.news.data.dto.UserDto
+import com.example.news.domain.repository.UserRepository
 import com.example.news.utils.Result
 import javax.inject.Inject
 import javax.inject.Singleton

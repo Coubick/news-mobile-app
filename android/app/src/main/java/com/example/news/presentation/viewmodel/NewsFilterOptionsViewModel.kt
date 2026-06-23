@@ -2,8 +2,8 @@ package com.example.news.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.news.data.repository.NewsFilterOptionsRepository
-import com.example.news.presentation.model.FilterItem
+import com.example.news.domain.repository.NewsFilterOptionsRepository
+import com.example.news.domain.model.FilterItem
 
 import com.example.news.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel

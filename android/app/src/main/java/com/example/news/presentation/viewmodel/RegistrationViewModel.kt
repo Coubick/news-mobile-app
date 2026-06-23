@@ -2,7 +2,7 @@ package com.example.news.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.news.data.repository.AuthRepository
+import com.example.news.domain.repository.AuthRepository
 import com.example.news.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -51,8 +51,6 @@ class RegistrationViewModel @Inject constructor(
         _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
         viewModelScope.launch {
-            authRepository.register(uiState.value.username, uiState.value.password)
-
             when (val result = authRepository.register(state.username, state.password)) {
                 is Result.Success<*> -> {
                     _uiState.update { it.copy(isLoading = false, isRegistrationSuccessful = true) }

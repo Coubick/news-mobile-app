@@ -1,14 +1,14 @@
 package com.example.news.di
 
-import com.example.news.data.repository.AuthRepository
+import com.example.news.domain.repository.AuthRepository
 import com.example.news.data.repository.AuthRepositoryImpl
-import com.example.news.data.repository.NewsFilterOptionsRepository
+import com.example.news.domain.repository.NewsFilterOptionsRepository
 import com.example.news.data.repository.NewsFilterOptionsRepositoryImpl
-import com.example.news.data.repository.NewsRepository
+import com.example.news.domain.repository.NewsRepository
 import com.example.news.data.repository.NewsRepositoryImpl
-import com.example.news.data.repository.CloudinaryRepository
+import com.example.news.domain.repository.CloudinaryRepository
 import com.example.news.data.repository.CloudinaryRepositoryImpl
-import com.example.news.data.repository.UserRepository
+import com.example.news.domain.repository.UserRepository
 import com.example.news.data.repository.UserRepositoryImpl
 import dagger.Binds
 import dagger.Module

@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.news.presentation.model.FilterItem
+import com.example.news.domain.model.FilterItem
 import com.example.news.utils.FilterOptionsType
 import com.example.news.R
 
