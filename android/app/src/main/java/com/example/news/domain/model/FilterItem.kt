@@ -10,3 +10,6 @@ data class FilterItem(
 )
 
 fun FilterItemDto.toUiModel(): FilterItem = FilterItem(id = id, name = name)
+
+
+// изменения 18245 - она в MR
